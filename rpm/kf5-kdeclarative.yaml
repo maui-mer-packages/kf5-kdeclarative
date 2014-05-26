@@ -1,0 +1,84 @@
+Name         : kf5-kdeclarative
+Version      : 4.99.0
+Release      : 1
+Group        : System/Base
+License      : GPLv2+
+Summary      : KDE Frameworks 5 Tier 3 addon for Qt declarative
+Description  : |
+  KDE Frameworks 5 Tier 3 addon for Qt declarative.
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kf5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
+    - kf5-kconfig-devel
+    - kf5-ki18n-devel
+    - kf5-kiconthemes-devel
+    - kf5-kwidgetsaddons-devel
+    - kf5-kglobalaccel-devel
+    - kf5-kcoreaddons-devel
+    - kf5-kguiaddons-devel
+    - kf5-kio-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+    - Qt5Script
+Requires:
+    - kf5-filesystem
+
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%doc COPYING COPYING.LIB README.md"
+    - "%{_kf5_libdir}/libKF5Declarative.so.*"
+    - "%{_kf5_qmldir}/org/kde/draganddrop"
+    - "%{_kf5_qmldir}/org/kde/kcoreaddons"
+    - "%{_kf5_qmldir}/org/kde/kquickcontrols"
+    - "%{_kf5_qmldir}/org/kde/kquickcontrolsaddons"
+    - "%{_kf5_qmldir}/org/kde/private/kquickcontrols"
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications |
+        that use %{name}.
+      Requires:
+          - kf5-kconfig-devel
+          - kf5-ki18n-devel
+          - kf5-kiconthemes-devel
+          - kf5-kwidgetsaddons-devel
+          - kf5-kglobalaccel-devel
+          - kf5-kcoreaddons-devel
+          - kf5-kguiaddons-devel
+          - kf5-kio-devel
+      Files:
+      - "%{_kf5_includedir}/kdeclarative_version.h"
+      - "%{_kf5_includedir}/KDeclarative"
+      - "%{_kf5_libdir}/libKF5Declarative.so"
+      - "%{_kf5_libdir}/cmake/KF5Declarative"
+      - "%{_datadir}/qt5/mkspecs/modules/qt_KDeclarative.pri"
