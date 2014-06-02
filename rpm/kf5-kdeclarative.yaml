@@ -43,6 +43,7 @@ PkgConfigBR:
     - Qt5Concurrent
     - Qt5Test
     - Qt5Script
+    - Qt5Qml
 Requires:
     - kf5-filesystem
 
