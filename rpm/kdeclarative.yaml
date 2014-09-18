@@ -74,6 +74,7 @@ SubPackages:
           - kcoreaddons-devel
           - kguiaddons-devel
           - kio-devel
+          - qt5-qtdeclarative-qtquick-devel
       Files:
       - "%{_kf5_includedir}/kdeclarative_version.h"
       - "%{_kf5_includedir}/KDeclarative"

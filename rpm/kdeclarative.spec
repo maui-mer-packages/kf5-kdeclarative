@@ -65,6 +65,7 @@ Requires:   kglobalaccel-devel
 Requires:   kcoreaddons-devel
 Requires:   kguiaddons-devel
 Requires:   kio-devel
+Requires:   qt5-qtdeclarative-qtquick-devel
 
 %description devel
 The %{name}-devel package contains the files necessary to develop applications |
