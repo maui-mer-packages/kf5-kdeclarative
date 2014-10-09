@@ -52,6 +52,9 @@ RequiresPost:
 RequiresPostUn:
     - /sbin/ldconfig
 
+LocaleName: kdeclarative5_qt
+LocaleOptions: "--with-qt --all-name || :"
+
 Files:
     - "%doc COPYING COPYING.LIB README.md"
     - "%{_kf5_libdir}/libKF5Declarative.so.*"
